@@ -14,7 +14,7 @@
               class="absolute top-0 right-0 p-5 cursor-pointer"
               @click="$emit('close')"
             >
-              <i class='bx bx-x bx-sm'></i>
+              <i class="bx bx-x bx-sm"></i>
             </div>
             <slot></slot>
           </div>
@@ -28,15 +28,14 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Modal',
+  name: "Modal",
   props: {
     /* The minimum width is specified */
-    minWidth: { type: String, default: '300' },
+    minWidth: { type: String, default: "300" },
     /* The maximun width is specified */
-    maxWidth: { type: String, default: '300' }
-  }
+    maxWidth: { type: String, default: "300" },
+  },
 };
 </script>
 
