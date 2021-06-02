@@ -13,7 +13,9 @@
     <div class="pl-10 pr-5 lg:flex mf:flex hidden">
       <Avatar><i class="bx bx-info-circle"></i></Avatar>
       <Avatar><i class="bx bx-cog"></i></Avatar>
-      <Avatar><i class="bx bx-transfer-alt"></i></Avatar>
+      <Avatar
+        ><i class="bx bx-transfer-alt" @click="showModalTheme"></i
+      ></Avatar>
       <Avatar class="ml-2">
         <img
           class="w-full h-full object-cover"
@@ -28,19 +30,19 @@
         Theme Switcher
         <div class="mt-7 flex justify-between">
           <div
-            @click="$store.theme = 'indigo'"
+            @click="changeTheme('indigo')"
             class="h-12 w-12 border-2 hover:border-indigo-600 border-white bg-indigo-400 rounded-full cursor-pointer"
           ></div>
           <div
-            @click="$store.theme = 'red'"
+            @click="changeTheme('red')"
             class="h-12 w-12 border-2 hover:border-red-600 border-white bg-red-400 rounded-full cursor-pointer"
           ></div>
           <div
-            @click="$store.theme = 'yellow'"
+            @click="changeTheme('yellow')"
             class="h-12 w-12 border-2 hover:border-yellow-600 border-white bg-yellow-400 rounded-full cursor-pointer"
           ></div>
           <div
-            @click="$store.theme = 'green'"
+            @click="changeTheme('green')"
             class="h-12 w-12 border-2 hover:border-green-600 border-white bg-green-400 rounded-full cursor-pointer"
           ></div>
         </div>
@@ -71,10 +73,18 @@ export default {
       showModal: false,
     };
   },
-  //   methods: {
-  //     openMore() {
-  //       console.log("yep!");
-  //     },
-  //   },
+  computed: {
+    theme() {
+      return this.$store.state.theme;
+    },
+  },
+  methods: {
+    showModalTheme() {
+      this.showModal = true;
+    },
+    changeTheme(color) {
+      this.$store.dispatch("changeCurrentTheme", color);
+    },
+  },
 };
 </script>

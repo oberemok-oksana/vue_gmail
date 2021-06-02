@@ -1,32 +1,32 @@
 <template>
-  <div id="app" class="flex flex-col h-screen">
+  <div id="app" class="flex flex-col h-screen" :style="themeColors[theme]">
     <Navbar />
     <div class="flex h-full">
       <SideBar />
       <div class="flex-auto overflow-auto">
-        <router-view/>
+        <router-view />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import SideBar from '@/components/SideBar.vue'
-import Navbar from '@/components/Navbar.vue'
-import { mapState } from 'vuex'
+import SideBar from "@/components/SideBar.vue";
+import Navbar from "@/components/Navbar.vue";
+import { mapState } from "vuex";
 
 export default {
   components: {
     SideBar,
-    Navbar
+    Navbar,
   },
   computed: {
-    ...mapState(['theme'])
+    ...mapState(["theme", "themeColors"]),
   },
   mounted() {
     /* console.log(this.$route.path) */
   },
-}
+};
 </script>
 
 <style lang="less">

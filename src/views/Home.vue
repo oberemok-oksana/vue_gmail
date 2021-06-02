@@ -3,8 +3,8 @@
     <div class="flex actions items-center p-2 border-b">
       <div
         @click="selectAll"
-        class="h-5 w-5 duration-300 transition mr-1 bg-indigo-50 rounded-md cursor-pointer flex items-center justify-center"
-        :class="[{ 'bg-indigo-500': selectedAll }]"
+        class="h-5 w-5 duration-300 transition mr-1 bg-primary-50 rounded-md cursor-pointer flex items-center justify-center"
+        :class="[{ 'bg-primary-500': selectedAll }]"
       >
         <div v-if="selectedAll" class="h-2 w-2 bg-white rounded-full"></div>
       </div>
@@ -25,21 +25,21 @@
         <div
           @click="(active = 1), clear()"
           class="transition duration-300 flex items-center mx-1 border-b-2 p-3 cursor-pointer text-gray-400"
-          :class="[{ 'text-indigo-500 border-indigo-500': active == 1 }]"
+          :class="[{ 'text-primary-500 border-primary-500': active == 1 }]"
         >
           <i class="bx bxs-inbox mr-2"></i>Inbox
         </div>
         <div
           @click="(active = 2), clear()"
           class="transition duration-300 flex items-center mx-1 p-3 cursor-pointer border-b-2 text-gray-400"
-          :class="[{ 'text-indigo-500 border-indigo-500': active == 2 }]"
+          :class="[{ 'text-primary-500 border-primary-500': active == 2 }]"
         >
           <i class="bx bxs-face-mask mr-2"></i>Social
         </div>
         <div
           @click="(active = 3), clear()"
           class="transition duration-300 flex items-center mx-1 p-3 cursor-pointer border-b-2 text-gray-400"
-          :class="[{ 'text-indigo-500 border-indigo-500': active == 3 }]"
+          :class="[{ 'text-primary-500 border-primary-500': active == 3 }]"
         >
           <i class="bx bx-tag mr-2"></i>Promotions
         </div>
