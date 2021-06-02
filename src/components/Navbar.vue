@@ -30,26 +30,30 @@
         Theme Switcher
         <div class="mt-7 flex justify-between">
           <div
-            @click="changeTheme('indigo')"
+            @click="selected = 'indigo'"
             class="h-12 w-12 border-2 hover:border-indigo-600 border-white bg-indigo-400 rounded-full cursor-pointer"
+            :class="{ 'border-indigo-600': selected == 'indigo' }"
           ></div>
           <div
-            @click="changeTheme('red')"
+            @click="selected = 'red'"
             class="h-12 w-12 border-2 hover:border-red-600 border-white bg-red-400 rounded-full cursor-pointer"
+            :class="{ 'border-red-600': selected == 'red' }"
           ></div>
           <div
-            @click="changeTheme('yellow')"
+            @click="selected = 'yellow'"
             class="h-12 w-12 border-2 hover:border-yellow-600 border-white bg-yellow-400 rounded-full cursor-pointer"
+            :class="{ 'border-yellow-600': selected == 'yellow' }"
           ></div>
           <div
-            @click="changeTheme('green')"
+            @click="selected = 'green'"
             class="h-12 w-12 border-2 hover:border-green-600 border-white bg-green-400 rounded-full cursor-pointer"
+            :class="{ 'border-green-600': selected == 'green' }"
           ></div>
         </div>
       </div>
       <template #actions>
         <div class="flex justify-end">
-          <ButtonApp>Save</ButtonApp>
+          <ButtonApp @click="changeTheme(selected)">Save</ButtonApp>
         </div>
       </template>
     </Modal>
@@ -71,6 +75,7 @@ export default {
   data() {
     return {
       showModal: false,
+      selected: "indigo",
     };
   },
   computed: {
@@ -84,6 +89,7 @@ export default {
     },
     changeTheme(color) {
       this.$store.dispatch("changeCurrentTheme", color);
+      this.showModal = false;
     },
   },
 };
