@@ -8,6 +8,7 @@
         type="text"
         placeholder="Search email"
         class="w-full transition duration-300 focus: text-xs p-4 rounded-lg focus:outline-none bg-gray-50"
+        v-model="search"
       />
     </div>
     <div class="pl-10 pr-5 lg:flex mf:flex hidden">
@@ -64,6 +65,7 @@
 import Avatar from "@/components/Avatar";
 import Modal from "@/components/Modal.vue";
 import ButtonApp from "@/components/ButtonApp.vue";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "Navbar",
@@ -76,12 +78,12 @@ export default {
     return {
       showModal: false,
       selected: "indigo",
+      search: "",
     };
   },
   computed: {
-    theme() {
-      return this.$store.state.theme;
-    },
+    ...mapState(["theme"]),
+    ...mapGetters(["readLetters"]),
   },
   methods: {
     showModalTheme() {

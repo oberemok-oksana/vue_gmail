@@ -44,9 +44,10 @@ export default new Vuex.Store({
         starred: false,
         read: true,
         saved: false,
-        user: "Josué Ayala",
+        user: "John Ayala",
+        deleted: false,
         message:
-          "Similique rerum amet, deserunt facere sapiente rem unde, nisi natus adipisci, qui maiores porro itaque. Dolor ratione, eaque iusto nisi eos voluptate.",
+          "Something went wrong, deserunt facere sapiente rem unde, nisi natus adipisci, qui maiores porro itaque. Dolor ratione, eaque iusto nisi eos voluptate.",
       },
       {
         id: 2,
@@ -55,8 +56,9 @@ export default new Vuex.Store({
         read: false,
         saved: false,
         user: "Adam Wathan",
+        deleted: false,
         message:
-          "Esse nisi eveniet, impedit dicta dolore illo eligendi quo quae amet voluptatum, id nostrum corrupti libero, officiis sed aspernatur deleniti vero mollitia!.",
+          "I want to tell you, impedit dicta dolore illo eligendi quo quae amet voluptatum, id nostrum corrupti libero, officiis sed aspernatur deleniti vero mollitia!.",
       },
       {
         id: 3,
@@ -66,7 +68,7 @@ export default new Vuex.Store({
         saved: false,
         user: "Simon Vrachliotis",
         message:
-          "Veniam possimus voluptatem illo tempora ea, delectus, temporibus eligendi voluptatum pariatur commodi dicta molestiae cum praesentium quidem corrupti in et? Voluptas, ipsum?",
+          "Hey. Could we meet a bit sooner... illo tempora ea, delectus, temporibus eligendi voluptatum pariatur commodi dicta molestiae cum praesentium quidem corrupti in et? Voluptas, ipsum?",
       },
     ],
     inbox: [
@@ -76,9 +78,10 @@ export default new Vuex.Store({
         starred: false,
         read: true,
         saved: false,
-        user: "Josué Ayala",
+        deleted: false,
+        user: "John Ayala",
         message:
-          "Similique rerum amet, deserunt facere sapiente rem unde, nisi natus adipisci, qui maiores porro itaque. Dolor ratione, eaque iusto nisi eos voluptate.",
+          "Something went wrong, deserunt facere sapiente rem unde, nisi natus adipisci, qui maiores porro itaque. Dolor ratione, eaque iusto nisi eos voluptate.",
       },
       {
         id: 2,
@@ -86,9 +89,10 @@ export default new Vuex.Store({
         starred: false,
         read: false,
         saved: false,
+        deleted: false,
         user: "Adam Wathan",
         message:
-          "Esse nisi eveniet, impedit dicta dolore illo eligendi quo quae amet voluptatum, id nostrum corrupti libero, officiis sed aspernatur deleniti vero mollitia!.",
+          "I want to tell you, impedit dicta dolore illo eligendi quo quae amet voluptatum, id nostrum corrupti libero, officiis sed aspernatur deleniti vero mollitia!.",
       },
       {
         id: 3,
@@ -96,26 +100,29 @@ export default new Vuex.Store({
         starred: false,
         read: true,
         saved: false,
+        deleted: false,
         user: "Simon Vrachliotis",
         message:
-          "Veniam possimus voluptatem illo tempora ea, delectus, temporibus eligendi voluptatum pariatur commodi dicta molestiae cum praesentium quidem corrupti in et? Voluptas, ipsum?",
+          "Hey. Could we meet a bit sooner...illo tempora ea, delectus, temporibus eligendi voluptatum pariatur commodi dicta molestiae cum praesentium quidem corrupti in et? Voluptas, ipsum?",
       },
       {
-        id: 3,
+        id: 5,
         selected: false,
         starred: false,
         read: false,
         saved: false,
+        deleted: false,
         user: "Lee Robinson",
         message:
           "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
       },
       {
-        id: 3,
+        id: 4,
         selected: false,
         starred: false,
         read: false,
         saved: false,
+        deleted: false,
         user: "Steve Schoger",
         message:
           "Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from",
@@ -128,9 +135,10 @@ export default new Vuex.Store({
         starred: false,
         read: true,
         saved: false,
-        user: "Josué Ayala",
+        deleted: false,
+        user: "John Ayala",
         message:
-          "Similique rerum amet, deserunt facere sapiente rem unde, nisi natus adipisci, qui maiores porro itaque. Dolor ratione, eaque iusto nisi eos voluptate.",
+          "Something went wrong, deserunt facere sapiente rem unde, nisi natus adipisci, qui maiores porro itaque. Dolor ratione, eaque iusto nisi eos voluptate.",
       },
       {
         id: 2,
@@ -138,9 +146,10 @@ export default new Vuex.Store({
         starred: false,
         read: false,
         saved: false,
+        deleted: false,
         user: "Jed Watson",
         message:
-          "Esse nisi eveniet, impedit dicta dolore illo eligendi quo quae amet voluptatum, id nostrum corrupti libero, officiis sed aspernatur deleniti vero mollitia!.",
+          "He don't know, impedit dicta dolore illo eligendi quo quae amet voluptatum, id nostrum corrupti libero, officiis sed aspernatur deleniti vero mollitia!.",
       },
       {
         id: 3,
@@ -148,9 +157,10 @@ export default new Vuex.Store({
         starred: false,
         read: true,
         saved: false,
+        deleted: false,
         user: "Yuri Sulyma",
         message:
-          "Veniam possimus voluptatem illo tempora ea, delectus, temporibus eligendi voluptatum pariatur commodi dicta molestiae cum praesentium quidem corrupti in et? Voluptas, ipsum?",
+          "We shoud sell. illo tempora ea, delectus, temporibus eligendi voluptatum pariatur commodi dicta molestiae cum praesentium quidem corrupti in et? Voluptas, ipsum?",
       },
       {
         id: 3,
@@ -158,40 +168,72 @@ export default new Vuex.Store({
         starred: false,
         read: true,
         saved: false,
+        deleted: false,
         user: "Asheesh Kapur",
         message:
           "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage",
       },
       {
-        id: 3,
+        id: 5,
         selected: false,
         starred: false,
         read: false,
         saved: false,
+        deleted: false,
         user: "Joe Moeller",
         message:
           "need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary",
       },
       {
-        id: 3,
+        id: 4,
         selected: false,
         starred: false,
         read: false,
         saved: false,
+        deleted: false,
         user: "David Jaz Myers",
         message:
           "first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable",
       },
     ],
+    trash: [],
   },
   mutations: {
     NEW_THEME(state, color) {
       state.theme = color;
     },
+    DELETE_LETTERS(state) {
+      state.trash = state.inbox
+        .filter((letter) => letter.selected)
+        .concat(state.trash);
+      state.inbox = state.inbox.filter((letter) => {
+        return !letter.selected;
+      });
+    },
+  },
+  getters: {
+    readLetters: (state) => {
+      return state.inbox.filter((letter) => letter.read);
+    },
+    starredLetters: (state) => {
+      return state.inbox.filter((letter) => letter.starred);
+    },
+    savedLetters: (state) => {
+      return state.inbox.filter((letter) => letter.saved);
+    },
+    selectedLetters: (state) => {
+      return state.inbox.filter((letter) => letter.selected);
+    },
+    // searchedLetters: (state) => {
+    //   return state.inbox.filter();
+    // },
   },
   actions: {
     changeCurrentTheme({ commit }, color) {
       commit("NEW_THEME", color);
+    },
+    deleteLetters({ commit }) {
+      commit("DELETE_LETTERS");
     },
   },
   modules: {},

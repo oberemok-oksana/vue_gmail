@@ -52,6 +52,7 @@ export default {
     saved: { type: Boolean, default: false },
     message: { type: String, default: null },
     user: { type: String, default: null },
+    deleted: { type: Boolean, default: false },
   },
 };
 </script>
