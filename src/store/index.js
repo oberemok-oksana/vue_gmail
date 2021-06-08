@@ -197,6 +197,7 @@ export default new Vuex.Store({
       },
     ],
     trash: [],
+    search: "",
   },
   mutations: {
     NEW_THEME(state, color) {
@@ -210,23 +211,52 @@ export default new Vuex.Store({
         return !letter.selected;
       });
     },
+    UPDATE_SEARCH(state, value) {
+      state.search = value;
+    },
   },
   getters: {
     readLetters: (state) => {
-      return state.inbox.filter((letter) => letter.read);
+      return state.inbox
+        .filter((letter) => letter.read)
+        .filter((letter) => {
+          return (
+            letter.message.toLowerCase().includes(state.search.toLowerCase()) ||
+            letter.user.toLowerCase().includes(state.search.toLowerCase())
+          );
+        });
     },
     starredLetters: (state) => {
-      return state.inbox.filter((letter) => letter.starred);
+      return state.inbox
+        .filter((letter) => letter.starred)
+        .filter((letter) => {
+          return (
+            letter.message.toLowerCase().includes(state.search.toLowerCase()) ||
+            letter.user.toLowerCase().includes(state.search.toLowerCase())
+          );
+        });
     },
     savedLetters: (state) => {
-      return state.inbox.filter((letter) => letter.saved);
+      return state.inbox
+        .filter((letter) => letter.saved)
+        .filter((letter) => {
+          return (
+            letter.message.toLowerCase().includes(state.search.toLowerCase()) ||
+            letter.user.toLowerCase().includes(state.search.toLowerCase())
+          );
+        });
     },
     selectedLetters: (state) => {
       return state.inbox.filter((letter) => letter.selected);
     },
-    // searchedLetters: (state) => {
-    //   return state.inbox.filter();
-    // },
+    searchedLetters: (state) => {
+      return state.inbox.filter((letter) => {
+        return (
+          letter.message.toLowerCase().includes(state.search.toLowerCase()) ||
+          letter.user.toLowerCase().includes(state.search.toLowerCase())
+        );
+      });
+    },
   },
   actions: {
     changeCurrentTheme({ commit }, color) {
@@ -234,6 +264,9 @@ export default new Vuex.Store({
     },
     deleteLetters({ commit }) {
       commit("DELETE_LETTERS");
+    },
+    updateSearch({ commit }, value) {
+      commit("UPDATE_SEARCH", value);
     },
   },
   modules: {},

@@ -73,7 +73,7 @@
           :read="message.read"
           :user="message.user"
           :message="message.message"
-          v-for="(message, i) in inbox"
+          v-for="(message, i) in searchedLetters"
           :key="i"
         />
       </div>
@@ -132,7 +132,7 @@ export default {
   },
   computed: {
     ...mapState(["inbox", "social", "promotions"]),
-    ...mapGetters(["readLetters", "starredLetters"]),
+    ...mapGetters(["readLetters", "starredLetters", "searchedLetters"]),
   },
   methods: {
     clear() {

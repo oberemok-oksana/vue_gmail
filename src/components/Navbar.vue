@@ -20,7 +20,7 @@
       <Avatar class="ml-2">
         <img
           class="w-full h-full object-cover"
-          src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
+          src="https://scontent.fiev10-1.fna.fbcdn.net/v/t1.6435-9/127269861_3544452962276282_4837568543955920231_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=1MJgOfB9FWAAX9VDRm3&tn=X6-c2iYhgSCRrbC8&_nc_ht=scontent.fiev10-1.fna&oh=185200464d3c2c7b30d15ef1147533e9&oe=60E32228"
           alt=""
         />
       </Avatar>
@@ -78,12 +78,19 @@ export default {
     return {
       showModal: false,
       selected: "indigo",
-      search: "",
     };
   },
   computed: {
     ...mapState(["theme"]),
     ...mapGetters(["readLetters"]),
+    search: {
+      get() {
+        return this.$store.state.search;
+      },
+      set(value) {
+        this.$store.dispatch("updateSearch", value);
+      },
+    },
   },
   methods: {
     showModalTheme() {
