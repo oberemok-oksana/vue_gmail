@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Starred from "../components/Starred";
 import Saved from "../components/Saved";
 import Trash from "../components/Trash";
+import NewLetter from "../components/NewLetter";
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,11 @@ const routes = [
     path: "/trash",
     name: "Trash",
     component: Trash,
+  },
+  {
+    path: "/new",
+    name: "NewLetter",
+    component: NewLetter,
   },
 ];
 

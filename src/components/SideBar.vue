@@ -2,8 +2,10 @@
   <div class="h-full w-60 hidden lg:flex mf:flex">
     <div class="flex-auto">
       <div class="header p-4">
-        <ButtonApp class="w-full"
-          ><i class="bx bx-plus mr-4"></i>Compose</ButtonApp
+        <router-link :to="{ name: 'NewLetter' }"
+          ><ButtonApp class="w-full"
+            ><i class="bx bx-plus mr-4"></i>Compose</ButtonApp
+          ></router-link
         >
       </div>
       <div class="mt-3 flex-auto">
