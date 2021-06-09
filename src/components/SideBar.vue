@@ -28,14 +28,20 @@
             >Important</ItemSidebar
           ></router-link
         >
-        <ItemSidebar :active="$router.path === '/starred'" icon="navigation"
-          >Sent</ItemSidebar
-        >
+        <router-link :to="{ name: 'Sent' }">
+          <ItemSidebar :quantity="sent.length" icon="navigation"
+            >Sent</ItemSidebar
+          >
+        </router-link>
         <router-link :to="{ name: 'Trash' }">
           <ItemSidebar icon="book" :quantity="trash.length">Trash</ItemSidebar>
         </router-link>
         <ItemSidebar icon="book">Drafts</ItemSidebar>
-        <ItemSidebar icon="x-circle">Spam</ItemSidebar>
+        <router-link :to="{ name: 'Spam' }">
+          <ItemSidebar icon="x-circle" :quantity="spam.length"
+            >Spam</ItemSidebar
+          >
+        </router-link>
       </div>
     </div>
   </div>
@@ -53,7 +59,7 @@ export default {
     ItemSidebar,
   },
   computed: {
-    ...mapState(["inbox", "social", "promotions", "trash"]),
+    ...mapState(["inbox", "social", "promotions", "trash", "spam", "sent"]),
     ...mapGetters(["starredLetters", "savedLetters"]),
   },
   mounted() {

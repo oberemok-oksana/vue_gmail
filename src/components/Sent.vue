@@ -20,10 +20,9 @@
       </div>
       <div
         class="delete h-8 w-8 duration-300 transition ml-2 text-gray-400 hover:bg-gray-100 items-center justify-center items-center flex rounded-full cursor-pointer"
-        v-if="selected"
-        @click="deleteLetters"
       >
         <svg
+          @click="deleteLetters"
           xmlns="http://www.w3.org/2000/svg"
           class="h-4 w-4"
           fill="none"
@@ -35,25 +34,6 @@
             stroke-linejoin="round"
             stroke-width="2"
             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-          />
-        </svg>
-      </div>
-      <div
-        @click="spamLetters"
-        class="h-8 w-8 duration-300 transition ml-2 text-gray-400 hover:bg-gray-100 items-center justify-center flex rounded-full cursor-pointer"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
           />
         </svg>
       </div>
@@ -96,7 +76,7 @@
           :read="message.read"
           :user="message.user"
           :message="message.message"
-          v-for="(message, i) in searchedLetters"
+          v-for="(message, i) in sent"
           :key="i"
         />
       </div>
@@ -111,7 +91,7 @@
           :read="message.read"
           :user="message.user"
           :message="message.message"
-          v-for="(message, i) in social"
+          v-for="(message, i) in savedLetters"
           :key="i"
         />
       </div>
@@ -126,7 +106,7 @@
           :read="message.read"
           :user="message.user"
           :message="message.message"
-          v-for="(message, i) in promotions"
+          v-for="(message, i) in savedLetters"
           :key="i"
         />
       </div>
@@ -138,7 +118,7 @@
 import Table from "@/components/Table/Table.vue";
 import ItemTable from "@/components/Table/ItemTable.vue";
 
-import { mapGetters, mapState } from "vuex";
+import { mapActions, mapGetters, mapState } from "vuex";
 
 export default {
   name: "Home",
@@ -151,14 +131,15 @@ export default {
       showModal: true,
       selectedAll: false,
       active: 1,
-      selected: "message.selected",
     };
   },
   computed: {
-    ...mapState(["inbox", "social", "promotions", "spam"]),
-    ...mapGetters(["readLetters", "starredLetters", "searchedLetters"]),
+    ...mapState(["inbox", "social", "promotions", "spam", "sent"]),
+    ...mapGetters(["readLetters", "starredLetters", "savedLetters"]),
   },
   methods: {
+    ...mapActions(["deleteLetters", "spamLetters", "sentLetters"]),
+
     clear() {
       this.selectedAll = false;
       this.inbox.forEach((el) => {
@@ -188,12 +169,6 @@ export default {
           });
         }
       }
-    },
-    deleteLetters() {
-      this.$store.dispatch("deleteLetters");
-    },
-    spamLetters() {
-      this.$store.dispatch("spamLetters");
     },
   },
 };

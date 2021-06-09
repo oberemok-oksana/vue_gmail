@@ -5,6 +5,8 @@ import Starred from "../components/Starred";
 import Saved from "../components/Saved";
 import Trash from "../components/Trash";
 import NewLetter from "../components/NewLetter";
+import Spam from "../components/Spam";
+import Sent from "../components/Sent";
 
 Vue.use(VueRouter);
 
@@ -42,6 +44,16 @@ const routes = [
     path: "/new",
     name: "NewLetter",
     component: NewLetter,
+  },
+  {
+    path: "/spam",
+    name: "Spam",
+    component: Spam,
+  },
+  {
+    path: "/sent",
+    name: "Sent",
+    component: Sent,
   },
 ];
 

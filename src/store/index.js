@@ -197,6 +197,8 @@ export default new Vuex.Store({
       },
     ],
     trash: [],
+    spam: [],
+    sent: [],
     search: "",
   },
   mutations: {
@@ -210,9 +212,27 @@ export default new Vuex.Store({
       state.inbox = state.inbox.filter((letter) => {
         return !letter.selected;
       });
+      state.spam = state.spam.filter((letter) => {
+        return !letter.selected;
+      });
+      state.sent = state.sent.filter((letter) => {
+        return !letter.selected;
+      });
     },
     UPDATE_SEARCH(state, value) {
       state.search = value;
+    },
+    SPAM_LETTERS(state) {
+      state.spam = state.inbox
+        .filter((letter) => letter.selected)
+        .concat(state.spam);
+
+      state.inbox = state.inbox.filter((letter) => {
+        return !letter.selected;
+      });
+    },
+    SENT_LETTERS(state, letter) {
+      state.sent.push(letter);
     },
   },
   getters: {
@@ -267,6 +287,12 @@ export default new Vuex.Store({
     },
     updateSearch({ commit }, value) {
       commit("UPDATE_SEARCH", value);
+    },
+    spamLetters({ commit }) {
+      commit("SPAM_LETTERS");
+    },
+    sentLetters({ commit }, letter) {
+      commit("SENT_LETTERS", letter);
     },
   },
   modules: {},

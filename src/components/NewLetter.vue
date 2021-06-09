@@ -22,7 +22,7 @@
       </svg>
     </div>
     <input
-      v-model="recipients"
+      v-model="user"
       class="w-full h-10 flex justify-start px-10 items-center rounded border-b-2 border-gray-100 outline-none"
       placeholder="Получатели"
     />
@@ -33,7 +33,7 @@
     />
 
     <textarea
-      v-model="text"
+      v-model="message"
       class="w-full flex-grow border-0 outline-none px-10 py-5"
       placeholder="Введите текст..."
     >
@@ -43,7 +43,7 @@
       id="wrapper_for_footer"
       class="w-full h-15 flex justify-between px-10 rounded items-center pb-8"
     >
-      <button class="bg-indigo-300 w-40 h-8 rounded text-white">
+      <button class="bg-indigo-300 w-40 h-8 rounded text-white" @click="send">
         Отправить
       </button>
       <svg
@@ -70,16 +70,31 @@ export default {
   name: "NewLetter",
   data() {
     return {
-      text: "",
+      message: "",
       topic: "",
-      recipients: "",
+      user: "",
     };
   },
   methods: {
+    send() {
+      const letter = {
+        message: this.message,
+        topic: this.topic,
+        user: this.user,
+        id: 4,
+        selected: false,
+        starred: false,
+        read: false,
+        saved: false,
+        deleted: false,
+      };
+      this.$store.dispatch("sentLetters", letter);
+      this.clearLetter();
+    },
     clearLetter() {
-      this.text = "";
+      this.message = "";
       this.topic = "";
-      this.recipients = "";
+      this.user = "";
     },
     backOnHomePage() {
       this.$router.push({ name: "Home" });
