@@ -18,6 +18,25 @@
       >
         <i class="bx bx-dots-horizontal-rounded"></i>
       </div>
+      <div
+        class="delete h-8 w-8 duration-300 transition ml-2 text-gray-400 hover:bg-gray-100 items-center justify-center items-center flex rounded-full cursor-pointer"
+      >
+        <svg
+          @click="deleteLetters"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="-5 0 26 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+          />
+        </svg>
+      </div>
     </div>
 
     <div class="">
@@ -46,6 +65,9 @@
       </div>
     </div>
     <Table>
+      <div class="px-5 py-10" v-if="trash.length == 0">
+        You do not have deleted letters.
+      </div>
       <div v-if="active == 1">
         <ItemTable
           @select="message.selected = !message.selected"
@@ -102,7 +124,7 @@
 import Table from "@/components/Table/Table.vue";
 import ItemTable from "@/components/Table/ItemTable.vue";
 
-import { mapGetters, mapState } from "vuex";
+import { mapActions, mapGetters, mapState } from "vuex";
 
 export default {
   name: "Home",
@@ -122,6 +144,7 @@ export default {
     ...mapGetters(["readLetters", "starredLetters"]),
   },
   methods: {
+    ...mapActions(["deleteLetters"]),
     clear() {
       this.selectedAll = false;
       this.inbox.forEach((el) => {

@@ -28,7 +28,7 @@
     />
     <input
       v-model="topic"
-      class="w-full h-10 flex justify-start px-10 items-center rounded border-b-2 border-gray-100"
+      class="w-full h-10 flex justify-start px-10 items-center rounded border-b-2 border-gray-100 outline-none"
       placeholder="Тема"
     />
 

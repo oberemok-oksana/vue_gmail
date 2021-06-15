@@ -46,6 +46,9 @@
       </div>
     </div>
     <Table>
+      <div class="px-5 py-10" v-if="savedLetters.length == 0">
+        You do not have important letters.
+      </div>
       <div v-if="active == 1">
         <ItemTable
           @select="message.selected = !message.selected"

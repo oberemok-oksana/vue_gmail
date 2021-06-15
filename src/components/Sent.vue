@@ -65,6 +65,9 @@
       </div>
     </div>
     <Table>
+      <div class="px-5 py-10" v-if="sent.length == 0">
+        You do not have sent letters.
+      </div>
       <div v-if="active == 1">
         <ItemTable
           @select="message.selected = !message.selected"

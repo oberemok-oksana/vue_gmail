@@ -46,6 +46,9 @@
       </div>
     </div>
     <Table>
+      <div class="px-5 py-10" v-if="starredLetters.length == 0">
+        You do not have any starred letters.
+      </div>
       <div v-if="active == 1">
         <ItemTable
           @select="message.selected = !message.selected"
